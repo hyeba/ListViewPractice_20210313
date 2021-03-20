@@ -57,10 +57,8 @@ class StudentAdapter(
 //        2021, 1988년생 => 34살
 //        2021, 1991년생 => 31살 => 2021 - 출생년도 + 1 = 나이
 
-        val cureentYear = Calendar.getInstance().get(Calendar.YEAR)
-        val koreanAge = cureentYear - studentData.birthYear + 1
 
-        ageTxt.text = "(${koreanAge}세)"
+        ageTxt.text = "(${studentData.getKoreanAge()}세)"
 
         addressTxt.text = studentData.address
 
