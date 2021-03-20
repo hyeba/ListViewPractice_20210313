@@ -47,6 +47,7 @@ class StudentAdapter(
 //        뿌려질 UI 요소를 가져오자 => row 변수 안에 있는 텍스트뷰 등을 꺼내오자
         val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
         val ageTxt = row.findViewById<TextView>(R.id.ageTxt)
+        val addressTxt = row.findViewById<TextView>(R.id.addressTxt)
 
 //        실제 데이터 UI 반영
         nameTxt.text = studentData.name
@@ -60,6 +61,8 @@ class StudentAdapter(
         val koreanAge = cureentYear - studentData.birthYear + 1
 
         ageTxt.text = "(${koreanAge}세)"
+
+        addressTxt.text = studentData.address
 
 
 //        완성된 row가 화면에 뿌려질 결과로 선정
