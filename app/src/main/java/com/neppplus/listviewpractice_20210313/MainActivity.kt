@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         mStudentList.add(Student("김종진", birthYear = 1991, address = "서울시 용산구"))
         mStudentList.add(Student("장혜진", birthYear = 1993, address = "서울시 강동구"))
 
+
 //        미뤄뒀던 mAdapter의 대입 진행
         mAdapter = StudentAdapter(this, R.layout.student_list_item, mStudentList)
 
