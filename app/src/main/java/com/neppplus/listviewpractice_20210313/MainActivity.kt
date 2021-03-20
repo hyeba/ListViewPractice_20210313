@@ -2,6 +2,7 @@ package com.neppplus.listviewpractice_20210313
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.neppplus.listviewpractice_20210313.adapters.StudentAdapter
 import com.neppplus.listviewpractice_20210313.datas.Student
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,6 +32,18 @@ class MainActivity : AppCompatActivity() {
 
 //        완성된 어댑터 변수를 리스트뷰와 연결
         studentListView.adapter = mAdapter
+
+//        학생리스트뷰 클릭 이벤트 구현
+
+        studentListView.setOnItemClickListener { parent, view, position, id ->
+
+//           position: 몇번 줄이 눌렸는지 알려주는 역할
+//            클릭된 학생 이름 토스트로 출력
+            val clickedStudent = mStudentList[position]
+
+            Toast.makeText(this, clickedStudent.name, Toast.LENGTH_SHORT).show()
+
+        }
 
 
     }
