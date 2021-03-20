@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.neppplus.listviewpractice_20210313.R
 import com.neppplus.listviewpractice_20210313.datas.Student
+import java.util.*
+import kotlin.collections.ArrayList
 
 class StudentAdapter(
     val mContext : Context,
@@ -45,6 +47,20 @@ class StudentAdapter(
 //        뿌려질 UI 요소를 가져오자 => row 변수 안에 있는 텍스트뷰 등을 꺼내오자
         val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
         val ageTxt = row.findViewById<TextView>(R.id.ageTxt)
+
+//        실제 데이터 UI 반영
+        nameTxt.text = studentData.name
+//        ageTxt.text = "(${studentData.birthYear}세)"
+
+//        출생년도 => 몇살인지? 나이에 반영
+//        2021, 1988년생 => 34살
+//        2021, 1991년생 => 31살 => 2021 - 출생년도 + 1 = 나이
+
+        val cureentYear = Calendar.getInstance().get(Calendar.YEAR)
+        val koreanAge = cureentYear - studentData.birthYear + 1
+
+        ageTxt.text = "(${koreanAge}세)"
+
 
 //        완성된 row가 화면에 뿌려질 결과로 선정
         return row
